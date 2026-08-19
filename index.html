@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Online Game</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         HOME SCREEN
+    ========================== -->
+
+    <div id="homeScreen" class="screen">
+
+        <div class="logo">
+            🎮
+        </div>
+
+        <h1>Online Game</h1>
+
+        <p class="subtitle">
+            Play together in real time
+        </p>
+
+        <div class="card">
+
+            <input
+                type="text"
+                id="playerName"
+                placeholder="Your name"
+                maxlength="16"
+                autocomplete="off"
+            >
+
+            <button id="createRoomBtn">
+                CREATE ROOM
+            </button>
+
+            <div class="divider">
+                <span>OR</span>
+            </div>
+
+            <div class="joinRow">
+
+                <input
+                    type="text"
+                    id="roomCodeInput"
+                    placeholder="ROOM CODE"
+                    maxlength="4"
+                    autocomplete="off"
+                >
+
+                <button id="joinRoomBtn">
+                    JOIN
+                </button>
+
+            </div>
+
+            <p id="homeMessage"></p>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         ROOM SCREEN
+    ========================== -->
+
+    <div id="roomScreen" class="screen hidden">
+
+        <header class="roomHeader">
+
+            <div>
+
+                <h1>🎮 Game Room</h1>
+
+                <p>
+                    Room:
+                    <strong id="roomCodeDisplay">
+                        ----
+                    </strong>
+                </p>
+
+            </div>
+
+            <button
+                id="leaveRoomBtn"
+                class="leaveButton"
+            >
+                LEAVE
+            </button>
+
+        </header>
+
+
+        <main class="roomLayout">
+
+            <!-- PLAYERS -->
+
+            <section class="playersCard">
+
+                <div class="sectionTitle">
+
+                    <h2>
+                        Players
+                    </h2>
+
+                    <span id="playerCount">
+                        0
+                    </span>
+
+                </div>
+
+
+                <div
+                    id="playersList"
+                    class="playersList"
+                >
+                </div>
+
+
+                <button
+                    id="readyBtn"
+                    class="readyButton"
+                >
+                    READY
+                </button>
+
+
+                <button
+                    id="startGameBtn"
+                    class="startButton hidden"
+                >
+                    START GAME
+                </button>
+
+            </section>
+
+
+            <!-- CHAT -->
+
+            <section class="chatCard">
+
+                <div class="sectionTitle">
+
+                    <h2>
+                        💬 Chat
+                    </h2>
+
+                </div>
+
+
+                <div
+                    id="chatMessages"
+                    class="chatMessages"
+                >
+                </div>
+
+
+                <form
+                    id="chatForm"
+                    class="chatForm"
+                >
+
+                    <input
+                        type="text"
+                        id="chatInput"
+                        placeholder="Write a message..."
+                        maxlength="200"
+                        autocomplete="off"
+                    >
+
+                    <button type="submit">
+                        SEND
+                    </button>
+
+                </form>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- =========================
+         GAME SCREEN
+    ========================== -->
+
+    <div
+        id="gameScreen"
+        class="screen hidden"
+    >
+
+        <div class="gameContent">
+
+            <div class="gameIcon">
+                🎮
+            </div>
+
+            <h1>
+                GAME STARTED!
+            </h1>
+
+            <p class="gameSubtitle">
+                Everyone is in the game.
+            </p>
+
+
+            <div
+                id="countdown"
+                class="countdown"
+            >
+                3
+            </div>
+
+
+            <div
+                id="gameMessage"
+                class="gameMessage"
+            >
+                Get ready!
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Socket.IO -->
+
+    <script src="/socket.io/socket.io.js"></script>
+
+    <!-- Our JavaScript -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
